@@ -28,7 +28,7 @@ int main(void)
 		printf("%s", response);
 
 		// check if user wants to exit
-		if (strcmp(input, "quit") == 0)
+		if (strcmp(input, "quit\n") == 0)
 		{
 			quit = true;
 			//printf("User selected Quit.\n");
