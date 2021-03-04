@@ -117,7 +117,7 @@ void respond_to(char * input, char * response)
 		strftime(response, 200, "It is %Y-%m-%d!\n", get_time());
 	}
 	if (strstr(input, "help") != NULL) {
-		printf("You can ask me the date or the time, or even for a joke. try it now!");
+		printf("You can ask me the date or the time, or even for a joke. try it now!\n");
 	}
 
 }
