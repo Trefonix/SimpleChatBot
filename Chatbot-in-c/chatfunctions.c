@@ -14,6 +14,8 @@ struct tm *get_time() {
 	return localtime(&timeT);
 } 
 
+int rand_no(int min_num, int max_num); //copied from internet
+
 //Greet
 void greeting()
 {
@@ -70,12 +72,52 @@ void take_input(char * input)
 			input[i] == '\0';
 		}
 	}
+	input[strcspn(input, "\n")] = 0;
 }
 
 // Populates `response` with an output derived fom `input`.
 void respond_to(char * input, char * response)
 {
 	response[0] = '\0';  // Remove the previous response.
+
+	char * greetings[] = {
+		"hello",
+		"good morning",
+		"good afternoon",
+		"good evening",
+		"hows it going",
+		"whats up",
+		"how are you doing",
+		"morning",
+		"afternoon",
+		"howdy",
+		"hi",
+		"hey",
+		"whats going on",
+		"yo",
+		"how you doing",
+		"how is everything",
+		"how are things",
+		"whats happening",
+		"whats new",
+		"nice to see you",
+		"long time no see",
+		"how have you been",
+		"been a while, crocodile",
+	};
+
+	// Iterate through all greetings
+	for(int i = 0; i < sizeof(greetings)/sizeof(greetings[0]); i++) {
+		// Look for a match
+		
+		if(strstr(input, greetings[i]) != NULL) {
+			// Match found
+			// Output some greeting
+			puts(greetings[rand_no(0, sizeof(greetings)/sizeof(greetings[0]) - 1)]);
+			return;
+		}
+	}
+	
 
 	//Possible user requests:
 	// hello
@@ -116,14 +158,24 @@ void respond_to(char * input, char * response)
 }
 
 
+//Random number function. Hmmmmm.
+int rand_no(int min_num, int max_num)
+{
+ int result = 0, low_num = 0, hi_num = 0;
 
+ if (min_num < max_num)
+ {
+  low_num = min_num;
+  hi_num = max_num + 1; // include max_num in output
+  } else {
+  low_num = max_num + 1; // include max_num in output
+  hi_num = min_num;
+  }
 
-
-
-
-
-
-
+ srand(time(NULL));
+ result = (rand() % (hi_num - low_num)) + low_num;
+ return result;
+}
 
 void startup()
 {
