@@ -57,6 +57,10 @@ void greeting()
 		printf("                                                           __/ |\n");
 		printf("                                                          |___/ \n");
 	}
+	else if (currentHour >= 20)
+	{
+		printf("Good Night!");
+	}
 }
 
 void take_input(char * input)
@@ -153,6 +157,9 @@ void respond_to(char * input, char * response)
 	// Scans the input for signs of the user wanting the date and gives them it.
 	if (strstr(input, "date") != NULL) {
 		strftime(response, 200, "It is %Y-%m-%d!\n", get_time());
+	}
+	if (strstr(input, "help") != NULL) {
+		printf("You can ask me the date or the time, or even for a joke. try it now!\n");
 	}
 
 }
