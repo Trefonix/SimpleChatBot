@@ -14,7 +14,7 @@ struct tm *get_time() {
 	return localtime(&timeT);
 } 
 
-
+//Greet
 void greeting()
 {
 
