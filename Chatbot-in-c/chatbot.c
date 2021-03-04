@@ -11,7 +11,7 @@ int main(void)
 	bool quit = false;
 	
 	// TODO: implement the clear.c file as startup animation
-	// startup();
+	 startup();
 
 	// say greeting
 	greeting();
